@@ -89,8 +89,46 @@ Step to Setup Angular APP
 //////////////////////////////////////
     Building Block Of Angular
 /////////////////////////////////////
-Module      => Module is parent of application
-Component   => HTML,css,Logic
-Pipe        => Run time data change
-Service     => To connect with external agent(Dependency Injection)
-Routing     => To Manage Multiple page
+Module      => Module is parent of application(ngModule)
+Component   => HTML,css,Logic (component)
+Pipe        => Run time data change (pipe,pipeTransform)
+Service     => To connect with external agent(Dependency Injection) (Injectble)
+Routing     => To Manage Multiple page (ngModule)
+main module
+main component
+
+ 
+/////BootStrap///////
+
+angular.json ==> main.ts => app.module.ts => App.component.ts
+>>>>>>>>>>Compile<<<<<<<<<<<<<<<<<<<<
+browser will run index.html
+
+
+
+//////////////////////////////////////
+   File Walkthrough
+/////////////////////////////////////
+tslint.json ==> make strutcure of code
+tsconfig.spec.json => help to locate test files
+tsconfig.json => it will tell where is build code and which version to target
+tsconfig.app.json => to locate application file
+ReadMe.md => Detail Description of application
+package.json => used for Dependency, commands and small Description
+package-lock.json => used for child Dependency
+angular.json => fist file to run and locate all content of application
+.gitignore => thing we dont want to push to git
+.editorconfig => For editor standards
+src/style.css => main style file of application
+src/polyfills => help to render application of all browser
+src/index.html => first and only browser will load 
+src/favicon=> simple icon
+src/assets => for all static file images /videos/script
+src/environment => help to build for prod /dev 
+src/app => all development happen here
+src/main => this will help to locate main module
+
+///////CLI//////
+
+ng g c product
+ng generate component product
