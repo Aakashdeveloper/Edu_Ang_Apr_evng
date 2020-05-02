@@ -132,3 +132,47 @@ src/main => this will help to locate main module
 
 ng g c product
 ng generate component product
+
+var a =10
+undefined
+a>10?"hii":"bie"
+"bie"
+a==10?"hii":"bie"
+"hii"
+a==10?a+1:a-1
+11
+a>10?a+1:a-1
+9
+
+One Way Binding
+> Data Binding  {{}}
+> Property []
+> Event binding ()
+Two Way Binding [()]
+ngstyle
+ngClass
+*ngFor
+*ngIf
+pipe
+customepipe
+
+
+Structural directive
+*ngFor
+*ngIf
+*ngClass
+
+lowercase
+uppercase
+currency
+date
+perctange
+titlecase
+
+
+map 
+filter
+indexof
+
+Math.floor(Math.random()*(50-5))+5
+

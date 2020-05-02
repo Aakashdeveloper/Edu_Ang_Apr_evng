@@ -16,9 +16,11 @@
     "@angular/compiler": "~9.1.3",
     "@angular/core": "~9.1.3",
     "@angular/forms": "~9.1.3",
+    "@angular/google-maps": "^9.2.1",
     "@angular/platform-browser": "~9.1.3",
     "@angular/platform-browser-dynamic": "~9.1.3",
     "@angular/router": "~9.1.3",
+    "@angular/youtube-player": "^9.2.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

@@ -1,13 +1,37 @@
+<h4 [ngClass] = "{bgclass: message=='Lucky'}"
+    [ngStyle]="{color:getColor()}">
+    Current discount price is :{{discountPrice}}/{{message}}
+</h4>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        Resturents
+        <h1>{{title}}</h1>
     </div>
     <div class="panel-body">
+        <p>{{description}} {{restaurantList.length}}</p>
+        <p>{{condition}}</p>
         <div class="table-responsive">
+            <div class="row">
+                <div class="col-md-1">
+                    Filter By:
+                </div>
+                <div class="col-md-2">
+                    <input type="text" [(ngModel)]="userText"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>User Search For : {{userText}}</h3>
+                </div>
+            </div>
             <table class="table">
                 <thead>
                     <tr>
-                        <td></td>
+                        <td>
+                            <button class="btn btn-success"
+                            (click)="toggleImage()">
+                                {{condition?"Hide Image":"Show Image"}}
+                            </button>
+                        </td>
                         <th>Name</th>
                         <th>City</th>
                         <th>Rating</th>
@@ -15,12 +39,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td>Gulab</td>
-                        <td>Delhi</td>
-                        <td>4.2</td>
-                        <td>230</td>
+                    <tr *ngFor="let restaurant of restaurantList"> 
+                        <td>
+                            <img [src]="restaurant.thumb" class="myimage"
+                            *ngIf="condition"/>
+                        </td>
+                        <td>{{restaurant.name | myupper:'upper'}}</td>
+                        <td>{{restaurant.city | myupper:'lower'}}</td>
+                        <td [ngStyle]="{'color':restaurant.aggregate_rating<4?'tomato':'skyblue'}">
+                            <h4>{{restaurant.aggregate_rating}}</h4>
+                        </td>
+                        <td>{{restaurant.min_price| discount:discountPrice | currency:'INR' }}</td>
                     </tr>
                 </tbody>
             </table>
