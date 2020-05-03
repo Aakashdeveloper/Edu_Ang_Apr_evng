@@ -176,3 +176,61 @@ indexof
 
 Math.floor(Math.random()*(50-5))+5
 
+
+var a = [0,1,2,3]
+a.map((data) => { return data*2})
+[0,2,4,6]
+a.filter((data) => { return data*2})
+[1,2,3]
+
+var age = [56,34,23,43,25,30]
+age.filter((data) => {return data>30})
+(3) [56, 34, 43]
+
+
+var a = [2,4,5,6,7]
+a.map((data) => { return data*2})
+[4, 8, 10, 12, 14]
+
+///////////////////////////
+var myvar = []
+for(var i=0;i<3;i++){
+    myvar[i]=function(){
+        console.log("I m in function ",i)
+    }
+}
+
+for(j=0;j<3;j++){
+    myvar[j]()
+}
+
+//current
+"I m in function  3"
+"I m in function  3"
+"I m in function  3"
+
+//expected
+"I m in function  0"
+"I m in function  1"
+"I m in function  2"
+/////////////////////////////
+
+
+var city = ["Delhi","Mumbai","Paris","Helsinki","Boston"]
+
+
+var city = ["Delhi","Mumbai","Paris","Helsinki","Boston"]
+undefined
+city.indexOf("Delhi")
+0
+city.indexOf("Paris")
+2
+city.indexOf("Amsterdam")
+-1
+city.indexOf("Nice")
+-1
+
+
+
+@Input(Parent => Child) (PropertyBinding)
+@Output(Child=> Parent) (event Bindinhg)

@@ -7,7 +7,7 @@
         <h1>{{title}}</h1>
     </div>
     <div class="panel-body">
-        <p>{{description}} {{restaurantList.length}}</p>
+        <p>{{description}}</p>
         <p>{{condition}}</p>
         <div class="table-responsive">
             <div class="row">
@@ -20,10 +20,11 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <h3>User Search For : {{userText}}</h3>
+                    <h3>{{(restaurantList|search:userText).length}}  Search For : {{userText}}</h3>
+                    
                 </div>
             </div>
-            <table class="table">
+            <table class="table" *ngIf="restaurantList && restaurantList.length;else noData">
                 <thead>
                     <tr>
                         <td>
@@ -39,7 +40,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let restaurant of restaurantList"> 
+                    <tr *ngFor="let restaurant of restaurantList | search:userText"> 
                         <td>
                             <img [src]="restaurant.thumb" class="myimage"
                             *ngIf="condition"/>
@@ -47,12 +48,19 @@
                         <td>{{restaurant.name | myupper:'upper'}}</td>
                         <td>{{restaurant.city | myupper:'lower'}}</td>
                         <td [ngStyle]="{'color':restaurant.aggregate_rating<4?'tomato':'skyblue'}">
-                            <h4>{{restaurant.aggregate_rating}}</h4>
+                            <h4>
+                                <app-star [rating]="restaurant.aggregate_rating"
+                                (ratingClicked)="dataRecive($event)"
+                                ></app-star>
+                            </h4>
                         </td>
                         <td>{{restaurant.min_price| discount:discountPrice | currency:'INR' }}</td>
                     </tr>
                 </tbody>
             </table>
+            <ng-template #noData>
+                <img src="../../assets/loading.gif"/>
+            </ng-template>
         </div>
     </div>
 </div>

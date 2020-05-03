@@ -13,6 +13,8 @@ import { HeaderComponent } from './Header/Header.component';
 import { ProductComponent } from './product/product.component';
 import { MyUpperPipe } from './product/myupper.pipe';
 import { MyDiscount } from './product/mydiscount.pipe';
+import { ProductSearchPipe } from './product/productSearch.pipe';
+import { StarComponent } from './shared/star.component';
 
 
 // Decorater(matadata)
@@ -30,7 +32,9 @@ import { MyDiscount } from './product/mydiscount.pipe';
         HeaderComponent,
         ProductComponent,
         MyUpperPipe,
-        MyDiscount
+        MyDiscount,
+        ProductSearchPipe,
+        StarComponent
     ],
 
     // Only and only first/main coomponent

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {IProduct} from './product.model';
 
 @Component({
   selector: 'app-product',
@@ -13,10 +14,10 @@ import { Component } from '@angular/core';
 
 export class ProductComponent  {
   title = 'Resturant List';
-  description: String = 'Total Restaurant ';
+  description: String = ' ';
   imageWidth = 150;
   condition = true;
-  userText = ' ';
+  userText = '';
   discountPrice = Math.floor(Math.random() * (50 - 5)) + 5;
   message = this.discountPrice > 25 ? 'Super Lucky' : 'Lucky';
 
@@ -28,24 +29,28 @@ export class ProductComponent  {
       return this.message == 'Lucky' ? 'red' : 'green';
   }
 
-  restaurantList: any[] = [
+  dataRecive(message: string): void{
+      this.description = message;
+  }
+
+  restaurantList: IProduct[] = [
     {
       id : '6360',
       "name" : "Gulab",
       "city" : "Delhi",
-      "locality_verbose" : "Pitampura, New Delhi",
+      "locality" : "Pitampura, New Delhi",
       "thumb" : "https://b.zmtcdn.com/data/pictures/chains/3/6303/640252389ddc3f264dd0e9f2741e73cd.jpg",
-      "aggregate_rating" : "4.2",
+      "aggregate_rating" : 4.5,
       "rating_text" : "Very Good",
       min_price: 230
   },
   {
       "id" : "307406",
       "name" : "Pandit Ji Parantha Hut",
-      "locality" : "Ashok Vihar Phase 2",
+      locality : 'Ashok Vihar Phase 2',
       "city" : "Delhi",
       "thumb" : "https://b.zmtcdn.com/data/pictures/5/19295175/231f0337cd9140f230d8208ddde923c9.jpg",
-      "aggregate_rating" : "3.0",
+      "aggregate_rating" : 2.5,
       "rating_text" : "Very Good",
       min_price: 530
   },
@@ -55,7 +60,7 @@ export class ProductComponent  {
       "locality" : "Laxmi Nagar",
       "city" : "Delhi",
       "thumb" : "https://b.zmtcdn.com/data/reviews_photos/15b/d3faa48ac6382d15d60ca96b501dc15b_1570259732.jpg",
-      "aggregate_rating" : "3.0",
+      "aggregate_rating" : 3.8,
       "rating_text" : "Very Good",
       "min_price": 450
   },
@@ -66,7 +71,7 @@ export class ProductComponent  {
       "locality" : "Lajpat Nagar 2",
       "city" : "Delhi",
       "thumb" : "https://b.zmtcdn.com/data/pictures/4/18932104/e90bb17c3b05e7a39251378389afe651.jpg",
-      "aggregate_rating" : "4.1",
+      "aggregate_rating" : 4.7,
       "rating_text" : "Very Good",
       "min_price": 280
   },
@@ -77,7 +82,7 @@ export class ProductComponent  {
       "locality" : "Borivali West",
       "city" : "Mumbai",
       "thumb" : "https://b.zmtcdn.com/data/pictures/7/18690357/0df7f4ca0c645a68a1657b1e69b015fa.jpg",
-      "aggregate_rating" : "3.2",
+      aggregate_rating: 3.2,
       "rating_text" : "Very Good",
       "min_price": 530
   },
@@ -87,7 +92,7 @@ export class ProductComponent  {
       "locality" : "Mira Road",
       "city" : "Mumbai",
       "thumb" : "https://b.zmtcdn.com/data/pictures/chains/9/35079/2be67efb4302119d103affa1c5f85ee0.jpg",
-      "aggregate_rating" : "4.1",
+      aggregate_rating: 4.4,
       "rating_text" : "Very Good",
       "min_price": 980
   },
@@ -97,7 +102,7 @@ export class ProductComponent  {
       "locality" : "Sion",
       "city" : "Mumbai",
       "thumb" : "https://b.zmtcdn.com/data/pictures/3/40853/6575f9f7e5b67f8b43364fff733b898c.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
-      "aggregate_rating" : "4.4",
+      aggregate_rating: 4.4 ,
       "rating_text" : "Very Good",
       "min_price": 890
   },
@@ -107,7 +112,7 @@ export class ProductComponent  {
       "locality" : "Mohammad Ali Road",
       "city" : "Mumbai",
       "thumb" : "https://b.zmtcdn.com/data/pictures/chains/0/38430/c657dda522a081edaec24884fb0dcebb.jpg",
-      "aggregate_rating" : "2.5",
+      aggregate_rating: 2.5,
       "rating_text" : "Very Good",
       "min_price": 130
   },
@@ -116,7 +121,7 @@ export class ProductComponent  {
       "name" : "Satguru's Punjabi Rasoi",
       "locality" : "Destination Centre Magarpatta",
       "city" : "Pune",
-      "aggregate_rating" : "4.2",
+      "aggregate_rating" : 4.2,
       "rating_text" : "Very Good",
       "min_price": 670,
       "thumb" : "https://b.zmtcdn.com/data/pictures/3/12073/a8e288f382c2950ffe4819aa47a82b7b.jpg"
@@ -127,7 +132,7 @@ export class ProductComponent  {
       "locality" : "Magarpatta",
       "city" : "Pune",
       "thumb" : "https://b.zmtcdn.com/data/res_imagery/6508401_RESTAURANT_21a925c42f2f93c9709e1945b9eae56f.jpg",
-      "aggregate_rating" : "3.5",
+      "aggregate_rating" : 3.5,
       "rating_text" : "Very Good",
       "min_price": 650
   },
@@ -136,7 +141,7 @@ export class ProductComponent  {
       "name" : "Teri Rajput",
       "locality" : "Koregaon Park",
       "city" : "Pune",
-      "aggregate_rating" : "4.1",
+      "aggregate_rating" : 4.1,
       "rating_text" : "Very Good",
       "min_price": 570,
       "thumb" : "https://b.zmtcdn.com/data/pictures/3/13813/0ace082a85ec491574e8cea325482a6e.jpg"
@@ -147,7 +152,7 @@ export class ProductComponent  {
       "locality" : "Rajajinagar",
       "city" : "Bangalore",
       "thumb" : "https://b.zmtcdn.com/data/pictures/1/50471/bcf68da39dcfb0fe5bcfb742c337385e.jpg",
-      "aggregate_rating" : "3.4",
+      "aggregate_rating" : 3.4,
       "rating_text" : "Very Good",
       "min_price": 290
   },
@@ -157,7 +162,7 @@ export class ProductComponent  {
       "locality" : "Koramangala 6th Block",
       "city" : "Bangalore",
       "thumb" : "https://b.zmtcdn.com/data/pictures/1/61381/67f358c29c0497e73556490bafc9f374.jpg",
-      "aggregate_rating" : "4.2",
+      "aggregate_rating" : 1.5,
       "rating_text" : "Very Good",
       "min_price": 130
   },
@@ -166,7 +171,7 @@ export class ProductComponent  {
       "name" : "JnJ's",
       "locality" : "Sector 28",
       "city" : "Chandigarh",
-      "aggregate_rating" : "4.0",
+      "aggregate_rating" : 4.0,
       "rating_text" : "Very Good",
       "min_price": 870,
       "thumb" : "https://b.zmtcdn.com/data/pictures/chains/9/18904519/2a7cc85404716ac8d886bccbc5b1635f.jpg"
@@ -177,7 +182,7 @@ export class ProductComponent  {
       "locality" : "Sector 70",
       "city" : "Chandigarh",
       "thumb" : "https://b.zmtcdn.com/data/reviews_photos/c7a/634a2c0def8a8d044992aea9e7680c7a_1556257724.jpg",
-      "aggregate_rating" : "2.9",
+      "aggregate_rating" : 2.9,
       "min_price": 670,
       "rating_text" : "Good"
   }
