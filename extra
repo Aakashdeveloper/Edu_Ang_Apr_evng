@@ -234,3 +234,14 @@ city.indexOf("Nice")
 
 @Input(Parent => Child) (PropertyBinding)
 @Output(Child=> Parent) (event Bindinhg)
+
+
+/////////////
+Dummy API
+/////////////////
+npm i -g json-server
+json-server --watch db.json --port 8900
+
+
+
+var add =(a,b) =>{ data = a+b}

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges,
+import { Component, Input, OnChanges, OnInit,
         Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -7,7 +7,7 @@ import { Component, Input, OnChanges,
     styleUrls: ['./star.component.css']
 })
 
-export class StarComponent implements OnChanges{
+export class StarComponent implements OnChanges, OnInit{
     @Input() rating: number;
     @Output() ratingClicked: EventEmitter<string> = new EventEmitter<string>();
     starWidth: number;
@@ -15,6 +15,10 @@ export class StarComponent implements OnChanges{
     ngOnChanges() {
         console.log('>>>', this.rating);
         this.starWidth = 90 / 5 * this.rating;
+        console.log('Inside ngOnChanges');
+    }
+    ngOnInit(){
+        console.log('Inside ngOnInit');
     }
 
     onStar(): void{

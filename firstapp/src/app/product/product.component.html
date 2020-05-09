@@ -45,7 +45,12 @@
                             <img [src]="restaurant.thumb" class="myimage"
                             *ngIf="condition"/>
                         </td>
-                        <td>{{restaurant.name | myupper:'upper'}}</td>
+                        <td>
+                            <a [routerLink]="['/restaurants',restaurant.id]"
+                            [queryParams]="{name:restaurant.name, city:restaurant.city}">
+                            {{restaurant.name | myupper:'upper'}}
+                            </a>
+                        </td>
                         <td>{{restaurant.city | myupper:'lower'}}</td>
                         <td [ngStyle]="{'color':restaurant.aggregate_rating<4?'tomato':'skyblue'}">
                             <h4>

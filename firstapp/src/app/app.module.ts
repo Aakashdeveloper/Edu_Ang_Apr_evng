@@ -2,6 +2,8 @@
 import {NgModule} from '@angular/core';
 // To display content on the browser
 import {BrowserModule} from '@angular/platform-browser';
+// For Http Call
+import { HttpClientModule } from '@angular/common/http';
 
 // Main component
 import { AppComponent } from './app.component';
@@ -15,14 +17,21 @@ import { MyUpperPipe } from './product/myupper.pipe';
 import { MyDiscount } from './product/mydiscount.pipe';
 import { ProductSearchPipe } from './product/productSearch.pipe';
 import { StarComponent } from './shared/star.component';
-
+import { ProductService } from './product/product.service';
+import { HomeComponent } from './home/home.component';
+import { OrdersComponent } from './orders/orders.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ProductDetailsComponent } from './product/product-details.component';
 
 // Decorater(matadata)
 @NgModule({
     // All module will declare her
     imports: [
         BrowserModule,
-        FormsModule
+        FormsModule,
+        HttpClientModule,
+        AppRoutingModule
     ],
 
     // All component and pipe
@@ -34,7 +43,11 @@ import { StarComponent } from './shared/star.component';
         MyUpperPipe,
         MyDiscount,
         ProductSearchPipe,
-        StarComponent
+        StarComponent,
+        HomeComponent,
+        OrdersComponent,
+        NotfoundComponent,
+        ProductDetailsComponent
     ],
 
     // Only and only first/main coomponent
@@ -43,7 +56,9 @@ import { StarComponent } from './shared/star.component';
     ],
 
     // All service
-    providers: []
+    providers: [
+        ProductService
+    ]
 })
 
 
