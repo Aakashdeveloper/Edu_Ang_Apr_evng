@@ -245,3 +245,7 @@ json-server --watch db.json --port 8900
 
 
 var add =(a,b) =>{ data = a+b}
+
+
+ng-pristene  ng-touched    ng-valid
+ng-dirty     ng-untouched  ng-invalid

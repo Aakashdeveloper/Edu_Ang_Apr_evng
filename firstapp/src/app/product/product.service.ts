@@ -16,4 +16,14 @@ export class ProductService{
         return this.http.get<IProduct[]>(this.restUrl);
     }
 
+    getHotelDetails(id): Observable<IProduct[]> {
+        return this.http.get<IProduct[]>(`${this.restUrl}?id=${id}`);
+    }
+
 }
+
+/*
+var a = 10
+var b = "my age is "+a
+var c = `my age is ${a}`
+*/

@@ -11,7 +11,7 @@ import { ProductDetailsComponent } from './product/product-details.component';
 const routes: Routes = [
     {path: 'restaurants', component: ProductComponent},
     {path: 'restaurants/:id', component: ProductDetailsComponent},
-    {path: 'orders', component: OrdersComponent },
+    {path: 'orders/:id', component: OrdersComponent },
     {path: 'home', component: HomeComponent},
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: '**', component: NotfoundComponent}

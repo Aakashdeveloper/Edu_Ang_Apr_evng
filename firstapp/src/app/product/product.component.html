@@ -46,8 +46,7 @@
                             *ngIf="condition"/>
                         </td>
                         <td>
-                            <a [routerLink]="['/restaurants',restaurant.id]"
-                            [queryParams]="{name:restaurant.name, city:restaurant.city}">
+                            <a [routerLink]="['/restaurants',restaurant.id]">
                             {{restaurant.name | myupper:'upper'}}
                             </a>
                         </td>
@@ -69,3 +68,8 @@
         </div>
     </div>
 </div>
+
+
+<!--
+     [queryParams]="{name:restaurant.name, city:restaurant.city}"
+-->

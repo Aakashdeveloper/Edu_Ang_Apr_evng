@@ -23,6 +23,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductDetailsComponent } from './product/product-details.component';
+import { OrderService } from './orders/order.service';
 
 // Decorater(matadata)
 @NgModule({
@@ -57,7 +58,8 @@ import { ProductDetailsComponent } from './product/product-details.component';
 
     // All service
     providers: [
-        ProductService
+        ProductService,
+        OrderService
     ]
 })
 

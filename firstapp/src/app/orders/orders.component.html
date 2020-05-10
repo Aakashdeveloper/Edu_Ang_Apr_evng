@@ -4,13 +4,61 @@
     </div>
     <div class="panel-body"  >
         <div class="row" >
-            <img src="https://i.ibb.co/2WnY7z6/Screenshot-2020-05-02-at-12-44-42-PM.png" 
-                 class="img-responsive center-block"
-                 style="max-height:300px;padding-bottom:50px"/>
+           <h2>Your Order for {{details[0].name}} is confirmed</h2>
         </div>
-        <div class="row"  >
-            <div class="text-center">Total Orders:10</div>
-           
-        </div>
+        <h3>Totol Price is {{totalprice}}</h3>
+        <h2>Please enter your details</h2>
+        <form  #form="ngForm" (submit)="submitForm(form)">
+            <div class="form-group">
+                <label for="orderId" class="control-label"> orderId </label>
+                <input type="text" class="form-control"
+                name="orderId"
+                readonly
+                [(ngModel)]="myUser.orderId"
+                id="orderId"/>
+            </div>
+            <div class="form-group" [class.has-error]="firstName.invalid">
+                <label for="fname" class="control-label"> FirstName </label>
+                <input type="text" class="form-control"
+                name="firstname"
+                required
+                [(ngModel)]="myUser.firstname"
+                id="fname"
+                #firstName="ngModel"/>
+            </div>
+            <div class="alert alert-danger" *ngIf="firstName.invalid">
+                First Name is Required
+            </div>
+            <!--h2>{{firstName.invalid}}</h2-->
+            <!--h2>{{firstName.className}}</h2-->
+            <div class="form-group" [class.has-error]="Email.invalid && Email.touched">
+                <label class="control-label"> Email </label>
+                <input type="text" class="form-control"
+                name="email"
+                #Email="ngModel"
+                pattern="^([a-zA-Z0-9]+)@([a-zA-Z0-9]+)\.([a-z]{2,5})$"
+                [(ngModel)]="myUser.email"/>
+            </div>
+            <div class="alert alert-danger" *ngIf="Email.invalid && Email.touched">
+                Email is invalid
+            </div>
+            <div class="form-group">
+                <label> Address  </label>
+                <input type="text" class="form-control"
+                name="address"
+                [(ngModel)]="myUser.address"/>
+            </div>
+            <div class="form-group">
+                <label> Phone </label>
+                <input type="text" class="form-control"
+                name="phone"
+                [(ngModel)]="myUser.phone"/>
+            </div>
+            <button type="submit" class="btn btn-success">
+                Confirm Order
+            </button>
+
+        </form>
+       
     </div>
 </div>
