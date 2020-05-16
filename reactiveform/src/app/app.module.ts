@@ -8,26 +8,21 @@ import { HttpClientModule } from '@angular/common/http';
 // Main component
 import { AppComponent } from './app.component';
 // For Forms Element
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { FooterComponent } from './Footer/Footer.component';
 import { HeaderComponent } from './Header/Header.component';
-import { HomeComponent } from './home/home.component';
-import { NotfoundComponent } from './notfound/notfound.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ProductModule } from './product/product.module';
-import { OrderModule } from './orders/order.module';
+import { SurveyComponent } from './survey/survey.component';
 
 // Decorater(matadata)
 @NgModule({
     // All module will declare her
     imports: [
         BrowserModule,
-        FormsModule,
+        ReactiveFormsModule,
         HttpClientModule,
-        AppRoutingModule,
-        OrderModule,
-        ProductModule
+        AppRoutingModule
     ],
 
     // All component and pipe
@@ -35,8 +30,7 @@ import { OrderModule } from './orders/order.module';
         AppComponent,
         FooterComponent,
         HeaderComponent,
-        HomeComponent,
-        NotfoundComponent
+        SurveyComponent
     ],
 
     // Only and only first/main coomponent

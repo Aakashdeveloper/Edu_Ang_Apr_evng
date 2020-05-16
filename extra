@@ -249,3 +249,65 @@ var add =(a,b) =>{ data = a+b}
 
 ng-pristene  ng-touched    ng-valid
 ng-dirty     ng-untouched  ng-invalid
+
+
+---------------
+Install mongodb
+
+Window
+> C:\data\db
+
+
+Mac
+sudo mkdir /System/Volumes/Data/data/db
+
+linux
+sudo mkdir /data/db
+
+Window
+C:/data/db
+
+How to run mongodb
+> Open two terminal 
+    1> Mongo server (should alawys running)
+    2> Mongo console ( To test query)
+
+Use cmd and naviagte
+> C:/Program/Mongo/3.4/bin
+> mongod  (mongodb server)
+
+>Use cmd and naviagte
+> C:Program/Mongo/4.2/bin
+> mongod (to start server)
+> mongo (to connect with console)
+
+Mac
+> Open Terminal
+> sudo mongod --dbpath /System/Volumes/Data/data/db
+> Open Terminal
+> mongo
+
+linux
+> Open Terminal
+> sudo mongod --dbpath /data/db
+> Open Terminal
+> mongo
+
+///////////////////////////
+/******GetAllUser*****/
+(GET)> http://localhost:5000/api/auth/users
+
+/******Register*****/
+(POST)> http://localhost:5000/api/auth/register
+(body) => {"name":"Aakash", "email":"aa@gmail.com","password":"12345678","role":"user?"}
+
+
+/******Login*****/
+(POST) => http://localhost:5000/api/auth/login
+(body)  => {"email":"aa@gmail.com","password":"12345678"}
+(response)=> {auth:true,token:'dgsdg'}
+
+/******UserInfo*****/
+(GET) => http://localhost:5000/api/auth/userinfo
+(Header) => {'x-access-token':'token value from login'}
+(response) => {userinfo}

@@ -1,0 +1,108 @@
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        Reactive Forms
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" (ngSubmit)="save()"
+        [formGroup]="surveyForm"
+        >
+        <div class="form-group">
+            <label class="col-md-2 control-label">FirstName</label>
+            <div class="col-md-8" [ngClass]="{'has-error':(!surveyForm.get('firstName').valid)}">
+                <input type="text" class="form-control"
+                formControlName="firstName"
+                id="fname"
+                placeholder="firstName"/>
+                <span class="help-block" *ngIf="(surveyForm.get('firstName').errors)">
+                    <span *ngIf="surveyForm.get('firstName').errors.required">
+                        FirstName is required
+                    </span>
+                    <span *ngIf="surveyForm.get('firstName').errors.minlength">
+                        FirstName is min length is 3
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">Email</label>
+            <div class="col-md-8" [ngClass]="{'has-error':(!surveyForm.get('Email').valid)}">
+                <input type="text" class="form-control"
+                formControlName="Email"
+                id="email"
+                placeholder="email"/>
+                <span class="help-block" *ngIf="(surveyForm.get('Email').errors)">
+                    <span *ngIf="surveyForm.get('Email').errors.required">
+                        Email is required
+                    </span>
+                    <span *ngIf="surveyForm.get('Email').errors.minlength">
+                        Enter Valid Email
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">Phone</label>
+            <div class="col-md-8" [ngClass]="{'has-error':(!surveyForm.get('Phone').valid)}">
+                <input type="text" class="form-control"
+                formControlName="Phone"
+                id="phone"
+                placeholder="phone"/>
+                <span class="help-block" *ngIf="(surveyForm.get('Phone').errors)">
+                    <span *ngIf="surveyForm.get('Phone').errors.required">
+                        Phone is required
+                    </span>
+                </span>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-md-2 control-label">
+                Notification
+            </label>
+            <div class="col-md-8">
+                <label class="radio-inline">
+                    <input type="radio" value="phone"
+                    formControlName="Notification"
+                    (click)="setNotifcation('phone')"/>Phone
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" value="email"
+                    formControlName="Notification"
+                    (click)="setNotifcation('email')"/>Email
+                </label>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">Rating</label>
+            <div class="col-md-8" [ngClass]="{'has-error':(!surveyForm.get('Rating').valid)}">
+                <input type="text" class="form-control"
+                formControlName="Rating"
+                id="rating"
+                placeholder="rating"/>
+                <span class="help-block" *ngIf="(surveyForm.get('Rating').errors)">
+                    <span *ngIf="surveyForm.get('Rating').errors.required">
+                        Rating is required
+                    </span>
+                    <span *ngIf="surveyForm.get('Rating').errors.range">
+                        Rating should be between 1 to 10
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset">
+                <span>
+                    <button type="submit"
+                    class="btn btn-success"
+                    [disabled] ="!surveyForm.valid">
+                    Submit
+                    </button>
+                </span>
+            </div>
+        </div>
+            
+        </form>
+    </div>
+
+</div>

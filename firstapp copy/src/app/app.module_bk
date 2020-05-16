@@ -12,11 +12,18 @@ import { FormsModule } from '@angular/forms';
 
 import { FooterComponent } from './Footer/Footer.component';
 import { HeaderComponent } from './Header/Header.component';
+import { ProductComponent } from './product/product.component';
+import { MyUpperPipe } from './product/myupper.pipe';
+import { MyDiscount } from './product/mydiscount.pipe';
+import { ProductSearchPipe } from './product/productSearch.pipe';
+import { StarComponent } from './shared/star.component';
+import { ProductService } from './product/product.service';
 import { HomeComponent } from './home/home.component';
+import { OrdersComponent } from './orders/orders.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ProductModule } from './product/product.module';
-import { OrderModule } from './orders/order.module';
+import { ProductDetailsComponent } from './product/product-details.component';
+import { OrderService } from './orders/order.service';
 
 // Decorater(matadata)
 @NgModule({
@@ -25,9 +32,7 @@ import { OrderModule } from './orders/order.module';
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        AppRoutingModule,
-        OrderModule,
-        ProductModule
+        AppRoutingModule
     ],
 
     // All component and pipe
@@ -35,8 +40,15 @@ import { OrderModule } from './orders/order.module';
         AppComponent,
         FooterComponent,
         HeaderComponent,
+        ProductComponent,
+        MyUpperPipe,
+        MyDiscount,
+        ProductSearchPipe,
+        StarComponent,
         HomeComponent,
-        NotfoundComponent
+        OrdersComponent,
+        NotfoundComponent,
+        ProductDetailsComponent
     ],
 
     // Only and only first/main coomponent
@@ -45,7 +57,10 @@ import { OrderModule } from './orders/order.module';
     ],
 
     // All service
-    providers: []
+    providers: [
+        ProductService,
+        OrderService
+    ]
 })
 
 
