@@ -311,3 +311,9 @@ linux
 (GET) => http://localhost:5000/api/auth/userinfo
 (Header) => {'x-access-token':'token value from login'}
 (response) => {userinfo}
+
+localStorage.setItem("_tad","dsgdg")
+undefined
+localStorage.getItem("_tad")
+"dsgdg"
+localStorage.removeItem("_tad")
