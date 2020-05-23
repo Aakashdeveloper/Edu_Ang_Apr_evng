@@ -13,11 +13,30 @@
             {{userinfo.role === "admin" ? "Add New Admin User": "View Your Profile"}}
         </h2>
         <div *ngIf="userinfo.role === 'admin'">
-            <button class="btn btn-success">
+            <button class="btn btn-success" 
+            [routerLink] = "['/admin']">
                 Add Admin User
             </button>
             <br/>
             <h2>List of All User</h2>
+            <div class="container">
+                <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th> 
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let all of allUser">
+                                <td>{{all.name}}</td>
+                                <td>{{all.email}}</td>
+                                <td>{{all.role}}</td>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

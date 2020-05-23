@@ -3,6 +3,9 @@ https://github.com/
 https://github.com/Aakashdeveloper
 https://nodejs.org/en/
 
+MEAN
+Mongo express angular node
+
 AngularJs > Angular2 >4>5>6>7>8>9
 
 NPM=> Node Package Manager
@@ -317,3 +320,38 @@ undefined
 localStorage.getItem("_tad")
 "dsgdg"
 localStorage.removeItem("_tad")
+
+
+
+docker build . -t eduang
+docker image ls
+docker run -p 8089:4200 eduang
+
+ server {
+        listen       8081;
+        server_name  localhost;
+
+        location / {
+            root   /var/www/ang-app;
+            index  index.html index.htm;
+        }
+    }
+
+ server {
+    listen       443 ssl;
+    server_name  localhost;
+
+    ssl_certificate      cert.pem;
+    ssl_certificate_key  cert.key;
+
+    ssl_session_cache    shared:SSL:1m;
+    ssl_session_timeout  5m;
+
+    ssl_ciphers  HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers  on;
+
+    location / {
+            root   /var/www/ang-app;
+            index  index.html index.htm;
+        }
+    }

@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 
 export class ProfileComponent implements OnInit{
     userinfo;
+    allUser;
 
     constructor(private profleService: ProfleService,
                 private router: Router){
@@ -17,6 +18,9 @@ export class ProfileComponent implements OnInit{
     ngOnInit(): void{
         this.profleService.getUserInfo()
             .subscribe((data) => this.userinfo = data);
+
+        this.profleService.getAllUser()
+            .subscribe((data) => this.allUser = data);
     }
 
     logout(): void {

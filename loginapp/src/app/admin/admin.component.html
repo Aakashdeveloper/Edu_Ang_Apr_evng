@@ -1,0 +1,74 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+     Admin Register Page
+    </div>
+    <div class="panel-body">
+        <form #form="ngForm" (submit)="submitForm(form)">
+            <div class="form-group" [class.has-error]="firstname.invalid">
+                <label for="fname" class="control-label">
+                    FullName
+                </label>
+                <input type="text" placeholder="fullname"
+                    class="form-control"
+                    name="name"
+                    [(ngModel)]="myUser.name"
+                    required
+                    #firstname="ngModel"
+                    id="fname"
+                />
+                <div class="alert alert-danger" *ngIf="firstname.invalid">
+                    FullName is required
+                </div>
+            </div>
+            <div class="form-group" [class.has-error]="Email.invalid">
+                <label for="fname" class="control-label">
+                    Email
+                </label>
+                <input type="text" placeholder="Email"
+                    class="form-control"
+                    name="email"
+                    [(ngModel)]="myUser.email"
+                    pattern="^([a-zA-Z0-9]+)@([a-zA-Z0-9]+)\.([a-zA-Z]{2,5})$"
+                    #Email="ngModel"
+                    id="email"
+                />
+                <div class="alert alert-danger" *ngIf="Email.invalid">
+                    Enter Valid Email
+                </div>
+            </div>
+            <div class="form-group" [class.has-error]="Password.invalid">
+                <label for="pass" class="control-label">
+                    Password
+                </label>
+                <input type="text" placeholder="password"
+                    class="form-control"
+                    name="password"
+                    [(ngModel)]="myUser.password"
+                    minlength=8
+                    #Password="ngModel"
+                    id="pass"
+                />
+                <div class="alert alert-danger" *ngIf="Password.invalid">
+                   Min length is 8
+                </div>
+            </div>
+            <div class="form-group" [class.has-error]="Password.invalid">
+                <label for="pass" class="control-label">
+                    Role
+                </label>
+                <select
+                   name="role"
+                   [(ngModel)]="myUser.role">
+                    <option value="user" >User</option>
+                    <option value="admin">Admin</option>
+                </select>
+               
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success">
+                    Register
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
