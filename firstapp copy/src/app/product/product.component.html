@@ -1,0 +1,75 @@
+<h4 [ngClass] = "{bgclass: message=='Lucky'}"
+    [ngStyle]="{color:getColor()}">
+    Current discount price is :{{discountPrice}}/{{message}}
+</h4>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h1>{{title}}</h1>
+    </div>
+    <div class="panel-body">
+        <p>{{description}}</p>
+        <p>{{condition}}</p>
+        <div class="table-responsive">
+            <div class="row">
+                <div class="col-md-1">
+                    Filter By:
+                </div>
+                <div class="col-md-2">
+                    <input type="text" [(ngModel)]="userText"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>{{(restaurantList|search:userText).length}}  Search For : {{userText}}</h3>
+                    
+                </div>
+            </div>
+            <table class="table" *ngIf="restaurantList && restaurantList.length;else noData">
+                <thead>
+                    <tr>
+                        <td>
+                            <button class="btn btn-success"
+                            (click)="toggleImage()">
+                                {{condition?"Hide Image":"Show Image"}}
+                            </button>
+                        </td>
+                        <th>Name</th>
+                        <th>City</th>
+                        <th>Rating</th>
+                        <th>Price Per 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let restaurant of restaurantList | search:userText"> 
+                        <td>
+                            <img [src]="restaurant.thumb" class="myimage"
+                            *ngIf="condition"/>
+                        </td>
+                        <td>
+                            <a [routerLink]="['/restaurants',restaurant.id]">
+                            {{restaurant.name | myupper:'upper'}}
+                            </a>
+                        </td>
+                        <td>{{restaurant.city | myupper:'lower'}}</td>
+                        <td [ngStyle]="{'color':restaurant.aggregate_rating<4?'tomato':'skyblue'}">
+                            <h4>
+                                <app-star [rating]="restaurant.aggregate_rating"
+                                (ratingClicked)="dataRecive($event)"
+                                ></app-star>
+                            </h4>
+                        </td>
+                        <td>{{restaurant.min_price| discount:discountPrice | currency:'INR' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ng-template #noData>
+                <img src="../../assets/loading.gif"/>
+            </ng-template>
+        </div>
+    </div>
+</div>
+
+
+<!--
+     [queryParams]="{name:restaurant.name, city:restaurant.city}"
+-->
